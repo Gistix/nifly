@@ -503,7 +503,7 @@ public:
 		return rows[0] == other[0] && rows[1] == other[1] && rows[2] == other[2];
 	}
 
-	constexpr bool IsIdentity() { return *this == Matrix3(); }
+	constexpr bool IsIdentity() const { return *this == Matrix3(); }
 
 	Matrix3& Identity() {
 		//1.0f, 0.0f, 0.0f
@@ -705,7 +705,7 @@ public:
 
 	bool operator==(const Matrix4& other) const { return (std::equal(m, m + sizeof m / sizeof *m, other.m)); }
 
-	bool IsIdentity() { return *this == Matrix4(); }
+	bool IsIdentity() const { return *this == Matrix4(); }
 
 	Matrix4& Identity() {
 		std::memset(m, 0, sizeof(float) * 16);
